@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:school_app/constants.dart';
 
 class LoginScreen extends StatelessWidget
 {
@@ -9,24 +10,65 @@ class LoginScreen extends StatelessWidget
     dynamic h = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(247, 240, 240, 100),
-      body: Column(
-        children:
-         [
-          SizedBox(
-            height:MediaQuery.of(context).size.height*0.18,
-          ),
-           const Text("مدرستي",
-           style: TextStyle(
-             fontSize: 40,
-             fontWeight: FontWeight.bold
-               ,color: Colors.black
-           ),
-           )
+      backgroundColor: mainColor,
+
+      body: Center(
+        child: Column(
+        //  mainAxisAlignment: MainAxisAlignment.center,
+          children:
+           [
+            SizedBox(
+             height:h*0.18,
+            ),
+              Text("مدرستي",
+             style: TextStyle(
+               fontSize: 40,
+               fontWeight: FontWeight.bold
+                 ,color: Colors.black
+             ),
+             ),
+             SizedBox(height: h*0.15,),
+             Directionality(
+               textDirection:TextDirection.rtl,
+               child: Container(
 
 
 
-        ],
+
+                 width: 386,
+                 color: Colors.white ,
+
+                 child: Material(
+                   elevation: 10,
+                   shadowColor: Colors.white,
+                   child: TextFormField(
+
+                     decoration: InputDecoration(
+
+
+
+                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(5),),
+
+                       hintText:"اسم المستخدم",
+                      hintStyle: TextStyle(color:Color(0xff0D3082),
+                      fontWeight: FontWeight.bold),
+
+
+                     ),
+
+                   ),
+                 ),
+
+
+               ),
+
+             ),
+
+
+
+
+          ],
+        ),
       ),
 
 
