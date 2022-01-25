@@ -6,7 +6,7 @@ import 'constants.dart';
 
 
 
-Widget mainTextFormFields(context,String labelText)=>
+Widget mainTextFormFields({context,String ? labelText,IconData ? sufixicon,IconData? prefixIcon})=>
     Directionality(
       textDirection: TextDirection.rtl,
       child: Container(
@@ -17,8 +17,9 @@ Widget mainTextFormFields(context,String labelText)=>
           shadowColor: Colors.white,
           child: TextFormField(
             decoration: InputDecoration(
-              suffixIcon: Icon(Icons.remove_red_eye),
-              suffixIconColor: main2Color,
+              suffixIcon: Icon(sufixicon,color: main2Color,),
+              prefixIcon: Icon(prefixIcon,color: main2Color,),
+
 
 
 
