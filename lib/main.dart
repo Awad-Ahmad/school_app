@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           color: Colors.white,
-          elevation: 12,
+          elevation: 10,
         ),
       ),
       home: LoginScreen(),
