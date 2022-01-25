@@ -59,15 +59,26 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: h*0.73,),
-            MaterialButton(onPressed: (){},
-            child: const Text("تسجيل دخول ",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-              color: Colors.white
+            SizedBox(height: h*0.03,),
+            Container(width: 313,
+            height: 1,
+              color: main2Color,
             ),
-            ),)
+            SizedBox(height: h*0.10,),
+            Container(
+              width: w*0.90,
+              height: 60,
+              child: MaterialButton(onPressed: (){},
+                color: main2Color,
+
+              child: const Text("تسجيل دخول ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Colors.white
+              ),
+              ),),
+            )
 
           ],
         ),
