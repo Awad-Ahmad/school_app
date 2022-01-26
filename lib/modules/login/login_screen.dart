@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: mainColor),
+                          color: mainColor,),
                     ),
                     InkWell(
                       child: Text(
@@ -67,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                             decoration: TextDecoration.underline,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: mainColor),
+                            color: mainColor,),
                       ),
                     ),
                   ],

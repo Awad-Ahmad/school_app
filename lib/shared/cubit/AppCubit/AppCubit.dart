@@ -8,4 +8,10 @@ class AppCubit extends Cubit<AppState> {
     return BlocProvider.of(context);
   }
 
+  int currentIndex = 0;
+
+  void changeIndex(index) {
+    currentIndex = index;
+    emit(NavBarIndexChanged());
+  }
 }
