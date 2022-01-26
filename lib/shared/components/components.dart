@@ -1,6 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/shared/components/constants.dart';
-
+Widget mainLayoutWidget()=>
+    Column(
+      children: [
+        Container(
+          width: 184,
+          height: 184,
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+                offset: Offset(0, 6), color: bgColor, blurRadius: 6)
+          ], color: bgColor, borderRadius: BorderRadius.circular(25)),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 58, right: 58, top: 20, bottom: 34.9),
+                child: Container(
+                  color: bgColor,
+                  child: Image(
+                    image: AssetImage('assets/images/attendance.png'),
+                  ),
+                ),
+              ),
+              Text(
+                "الغيابات",
+                style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: mainColor),
+              )
+            ],
+          ),
+        )
+      ],
+    );
 Widget mainTextFormFields(
         {context,
         String? labelText,

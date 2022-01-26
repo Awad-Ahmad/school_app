@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/modules/login/login_screen.dart';
+import 'package:school_app/testing_compenent.dart';
 
 void main() {
   runApp(const MyApp());
