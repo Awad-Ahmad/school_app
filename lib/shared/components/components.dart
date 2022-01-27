@@ -1,40 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/shared/components/constants.dart';
-Widget mainLayoutWidget({String ?  widgetName,String ? imagePath})=>
-    Column(
-      children: [
-        Container(
-          width: 184,
-          height: 184,
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-                offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
-          ], color: bgColor, borderRadius: BorderRadius.circular(25)),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 58, right: 58, top: 20, bottom: 34.9),
-                child: Container(
-                  color: bgColor,
-                  child:  Image(
-                    image: AssetImage('$imagePath'),
-                  ),
-                ),
-              ),
-              Text(
-                "$widgetName",
-                style: TextStyle(
-                    fontSize: 28,
 
-                    fontWeight: FontWeight.bold,
-                    color: mainColor),
-              )
-            ],
-          ),
-        )
-      ],
+Widget mainLayoutWidget({String? widgetName, String? imagePath, context}) =>
+    Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          AspectRatio(
+            aspectRatio: 1 / 1,
+            child: Container(
+              // width: MediaQuery.of(context).size.width*0.3,
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                    offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
+              ], color: bgColor, borderRadius: BorderRadius.circular(25)),
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsetsDirectional.only(top: 20,),
+                    width: MediaQuery.of(context).size.width * 0.19,
+                    color: bgColor,
+                    child: Image(
+                      image: AssetImage('$imagePath'),
+                    ),
+                  ),
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "$widgetName",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: mainColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
+
 Widget mainTextFormFields(
         {context,
         String? labelText,

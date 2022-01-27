@@ -53,21 +53,20 @@ class HomeLayout extends StatelessWidget {
                           topLeft: Radius.circular(40),
                         ),
                       ),
-                      child:
-                      GridView.count(
+                      child: GridView.count(
                         crossAxisCount: 2,
                         shrinkWrap: true,
                         mainAxisSpacing: 1,
                         crossAxisSpacing: 1,
-
-                        children: List.generate(6,
-                                (index) =>mainLayoutWidget(widgetName: WidgetName[index] ,imagePath: "assets/images/ann.png")
-
+                        children: List.generate(
+                          6,
+                          (index) => mainLayoutWidget(
+                              widgetName: WidgetName[index],
+                              imagePath: imagePath[index],
+                              context: context),
                         ),
-
                       ),
                     ),
-
                   ],
                 ),
               ],
