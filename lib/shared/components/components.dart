@@ -2,52 +2,55 @@ import 'package:flutter/material.dart';
 import 'package:school_app/shared/components/constants.dart';
 
 Widget mainLayoutWidget({String? widgetName, String? imagePath, context}) =>
-    Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: [
-          AspectRatio(
-            aspectRatio: 1 / 1,
-            child: Container(
-              // width: MediaQuery.of(context).size.width*0.3,
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                    offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
-              ], color: bgColor, borderRadius: BorderRadius.circular(25)
-              )
-              ,
-              child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsetsDirectional.only(top: 20,),
-                    width: MediaQuery.of(context).size.width * 0.19,
-                    color: bgColor,
-                    child: Image(
-                      image: AssetImage('$imagePath'),
+    InkWell(
+      onTap: () {},
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            AspectRatio(
+              aspectRatio: 1 / 1,
+              child: Container(
+                // width: MediaQuery.of(context).size.width*0.3,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                      offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
+                ], color: bgColor, borderRadius: BorderRadius.circular(25)),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsetsDirectional.only(
+                        top: 20,
+                      ),
+                      width: MediaQuery.of(context).size.width * 0.17,
+                      color: bgColor,
+                      child: Image(
+                        image: AssetImage('$imagePath'),
+                      ),
                     ),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "$widgetName",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: mainColor,
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "$widgetName",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: mainColor,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
 
@@ -88,45 +91,3 @@ Widget mainTextFormFields(
         ),
       ),
     );
-Widget personalInfo({context,String ? first_text,String ?second_text})=>  Container(
-    width:MediaQuery.of(context).size.width*0.90 ,
-    height: 60,
-  decoration:
-
-  BoxDecoration(
-      boxShadow: [
-    BoxShadow(
-        offset: const Offset(0, 6), color: Colors.white, blurRadius: 6)
-  ], color: Colors.white, borderRadius: BorderRadius.circular(25)
-  )
-  ,
-
-
-
-  child: Row(
-    children: [
-      Padding(
-        padding: const EdgeInsets.only(right: 20),
-        child: Text("$first_text",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: mainColor
-          ),),
-      ),
-      Spacer(),
-      Padding(
-        padding: const EdgeInsetsDirectional.only(
-            end: 20
-        ),
-        child: Text("$second_text",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: mainColor
-          ),),
-      ),
-
-    ],
-  ),
-);

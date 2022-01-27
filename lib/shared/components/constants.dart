@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 var bgColor = const Color(0xffF7F0F0);
 var mainColor = const Color(0xff0D3082);
-List<String> WidgetName = [
+List<String> widgetName = [
   "الدرجات",
   "الغيابات ",
   "تعاميم و اعلانات ",
@@ -17,4 +17,13 @@ List<String> imagePath = [
   "assets/images/Table.png",
   "assets/images/Fees.png",
   "assets/images/more.png",
+];
+List<String> courses = [
+  "رياضيات",
+  "علوم",
+  "انجليزي",
+  "فرنسي",
+  "عربي",
+  "ديانه",
+  "اجتماعية",
 ];
