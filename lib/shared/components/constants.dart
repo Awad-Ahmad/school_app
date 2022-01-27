@@ -16,5 +16,5 @@ List<String> imagePath = [
   "assets/images/ann.png",
   "assets/images/Table.png",
   "assets/images/Fees.png",
-  "assets/images/about.png",
+  "assets/images/more.png",
 ];
