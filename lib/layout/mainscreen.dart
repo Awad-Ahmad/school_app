@@ -21,12 +21,13 @@ class mainScreen extends StatelessWidget {
 
 
             Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Row(
                   children: [
                     Padding(
                       padding:
-                      const EdgeInsets.only(bottom: 50, top: 25, right: 30),
+                      const EdgeInsets.only(bottom: 30, top: 25, right: 30),
                       child: Container(
                         child: CircleAvatar(
                           radius: 45,
@@ -61,33 +62,35 @@ class mainScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                Stack(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: h * 0.64,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40),
-                          topLeft: Radius.circular(40),
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: h * 0.64,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(40),
+                            topLeft: Radius.circular(40),
+                          ),
+                        ),
+                        child: GridView.count(
+                          crossAxisCount: 2,
+                          shrinkWrap: true,
+                          mainAxisSpacing: 1,
+                          crossAxisSpacing: 1,
+                          children: List.generate(
+                            6,
+                                (index) => mainLayoutWidget(
+                                widgetName: WidgetName[index],
+                                imagePath: imagePath[index],
+                                context: context),
+                          ),
                         ),
                       ),
-                      child: GridView.count(
-                        crossAxisCount: 2,
-                        shrinkWrap: true,
-                        mainAxisSpacing: 1,
-                        crossAxisSpacing: 1,
-                        children: List.generate(
-                          6,
-                              (index) => mainLayoutWidget(
-                              widgetName: WidgetName[index],
-                              imagePath: imagePath[index],
-                              context: context),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),

@@ -13,7 +13,9 @@ Widget mainLayoutWidget({String? widgetName, String? imagePath, context}) =>
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
-              ], color: bgColor, borderRadius: BorderRadius.circular(25)),
+              ], color: bgColor, borderRadius: BorderRadius.circular(25)
+              )
+              ,
               child: Column(
                 children: [
                   Container(
@@ -86,3 +88,45 @@ Widget mainTextFormFields(
         ),
       ),
     );
+Widget personalInfo({context,String ? first_text,String ?second_text})=>  Container(
+    width:MediaQuery.of(context).size.width*0.90 ,
+    height: 60,
+  decoration:
+
+  BoxDecoration(
+      boxShadow: [
+    BoxShadow(
+        offset: const Offset(0, 6), color: Colors.white, blurRadius: 6)
+  ], color: Colors.white, borderRadius: BorderRadius.circular(25)
+  )
+  ,
+
+
+
+  child: Row(
+    children: [
+      Padding(
+        padding: const EdgeInsets.only(right: 20),
+        child: Text("$first_text",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: mainColor
+          ),),
+      ),
+      Spacer(),
+      Padding(
+        padding: const EdgeInsetsDirectional.only(
+            end: 20
+        ),
+        child: Text("$second_text",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: mainColor
+          ),),
+      ),
+
+    ],
+  ),
+);
