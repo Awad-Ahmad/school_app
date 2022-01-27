@@ -38,10 +38,48 @@ class HomeLayout extends StatelessWidget {
                 ),
               ],
             ),
-            body: Stack(
+            body: Column(
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                Row(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: 50, top: 25, right: 30),
+                      child: Container(
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundColor: mainColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 7,
+                    ),
+                    Container(
+                      width: 190,
+                      height: 80,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "سامي رامي",
+                            style: TextStyle(
+                                fontSize: 22,
+                                color: mainColor,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text("صف سادس",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: mainColor,
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Stack(
                   children: [
                     Container(
                       width: double.infinity,
