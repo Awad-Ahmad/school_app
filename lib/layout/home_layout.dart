@@ -38,77 +38,7 @@ class HomeLayout extends StatelessWidget {
                 ),
               ],
             ),
-            body: Column(
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(bottom: 50, top: 25, right: 30),
-                      child: Container(
-                        child: CircleAvatar(
-                          radius: 45,
-                          backgroundColor: mainColor,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 7,
-                    ),
-                    Container(
-                      width: 190,
-                      height: 80,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "سامي رامي",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: mainColor,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text("صف سادس",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: mainColor,
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                Stack(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: h * 0.64,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40),
-                          topLeft: Radius.circular(40),
-                        ),
-                      ),
-                      child: GridView.count(
-                        crossAxisCount: 2,
-                        shrinkWrap: true,
-                        mainAxisSpacing: 1,
-                        crossAxisSpacing: 1,
-                        children: List.generate(
-                          6,
-                          (index) => mainLayoutWidget(
-                              widgetName: WidgetName[index],
-                              imagePath: imagePath[index],
-                              context: context),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            body:cubit.screensName[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: cubit.currentIndex,
               onTap: cubit.changeIndex,
