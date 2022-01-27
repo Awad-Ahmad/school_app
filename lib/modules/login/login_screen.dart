@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:school_app/layout/home_layout.dart';
 import 'package:school_app/modules/home/home_screen.dart';
@@ -9,6 +10,10 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     dynamic h = MediaQuery.of(context).size.height;
     dynamic w = MediaQuery.of(context).size.width;
+
+    final _auth = FirebaseAuth.instance;
+    late String email;
+    late String password;
 
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -34,6 +39,11 @@ class LoginScreen extends StatelessWidget {
                   height: h * 0.15,
                 ),
                 mainTextFormFields(
+
+                  onChanged:(value){
+                    email=value;
+
+                  } ,
                   context: context,
                   labelText: "اسم المستخدم",
                   prefixIcon: Icons.person_outline,
@@ -42,6 +52,9 @@ class LoginScreen extends StatelessWidget {
                   height: h * 0.045,
                 ),
                 mainTextFormFields(
+                onChanged: (value){
+                  password=value;
+                },
                   context: context,
                   labelText: "كلمة المرور",
                   suffixIcon: Icons.remove_red_eye_outlined,
@@ -95,14 +108,56 @@ class LoginScreen extends StatelessWidget {
                     decoration:
                         BoxDecoration(borderRadius: BorderRadius.circular(5)),
                     child: MaterialButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeLayout(),
-                          ),
-                        );
-                      },
+                      onPressed: () async{
+
+                        try {
+                          final user =
+                          await _auth.signInWithEmailAndPassword(
+                              email: "anas1@gmail.com", password:"123456");
+
+                          if (user.user != null) {
+                            Navigator.pushReplacement(
+                                 context,
+                                     MaterialPageRoute(
+                                builder: (context) => HomeLayout(),
+                                     )
+                                );
+                          }
+                        } catch (e) {
+                          print(e);
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: Center(
+                                    child: Text(
+                                      "",
+                                      style: TextStyle(
+                                          color: Colors.grey[400]),
+                                    )),
+                                content:const Text(
+                                   "error",
+                                  style: TextStyle(
+                                       color: Colors.white),
+                                 ),
+                                backgroundColor: Colors.grey[400],
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                    BorderRadius.circular(10)),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child:const  Text("ok",
+                                          style: TextStyle(
+                                              color: Colors.white)))
+                                ],
+                              ));
+                          //print(e);
+
+                        }
+
+                       },
                       color: mainColor,
                       child: const Text(
                         "تسجيل دخول ",

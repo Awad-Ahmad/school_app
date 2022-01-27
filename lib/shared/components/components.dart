@@ -55,10 +55,13 @@ Widget mainLayoutWidget({String? widgetName, String? imagePath, context}) =>
     );
 
 Widget mainTextFormFields(
-        {context,
+        {
+          context,
         String? labelText,
         IconData? suffixIcon,
-        IconData? prefixIcon}) =>
+        IconData? prefixIcon,
+
+          void Function(String)?   onChanged}) =>
     Directionality(
       textDirection: TextDirection.rtl,
       child: Container(
@@ -68,6 +71,8 @@ Widget mainTextFormFields(
           elevation: 10,
           shadowColor: Colors.white,
           child: TextFormField(
+ onChanged:onChanged ,
+
             decoration: InputDecoration(
               suffixIcon: Icon(
                 suffixIcon,
