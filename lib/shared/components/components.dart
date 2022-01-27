@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/shared/components/constants.dart';
 
-Widget mainLayoutWidget({String? widgetName, String? imagePath, context}) =>
+Widget mainLayoutWidget(
+        {String? widgetName, String? imagePath, context, screen}) =>
     InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => screen));
+      },
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -15,7 +19,7 @@ Widget mainLayoutWidget({String? widgetName, String? imagePath, context}) =>
                 decoration: BoxDecoration(boxShadow: [
                   BoxShadow(
                       offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
-                ], color: bgColor, borderRadius: BorderRadius.circular(5)),
+                ], color: bgColor, borderRadius: BorderRadius.circular(25)),
                 child: Column(
                   children: [
                     Container(
@@ -55,13 +59,11 @@ Widget mainLayoutWidget({String? widgetName, String? imagePath, context}) =>
     );
 
 Widget mainTextFormFields(
-        {
-          context,
+        {context,
         String? labelText,
         IconData? suffixIcon,
         IconData? prefixIcon,
-
-          void Function(String)?   onChanged}) =>
+        void Function(String)? onChanged}) =>
     Directionality(
       textDirection: TextDirection.rtl,
       child: Container(
@@ -71,8 +73,7 @@ Widget mainTextFormFields(
           elevation: 10,
           shadowColor: Colors.white,
           child: TextFormField(
- onChanged:onChanged ,
-
+            onChanged: onChanged,
             decoration: InputDecoration(
               suffixIcon: Icon(
                 suffixIcon,
@@ -97,40 +98,33 @@ Widget mainTextFormFields(
       ),
     );
 //a
-Widget personalInfo({context,String ? first_text,String ?second_text})=>  Container(
-  width:MediaQuery.of(context).size.width*0.90 ,
-  height: 60,
-  decoration: BoxDecoration(
-      boxShadow: [
+Widget personalInfo({context, String? first_text, String? second_text}) =>
+    Container(
+      width: MediaQuery.of(context).size.width * 0.90,
+      height: 60,
+      decoration: BoxDecoration(boxShadow: [
         BoxShadow(
             offset: const Offset(0, 6), color: Colors.white, blurRadius: 6)
-      ], color: Colors.white, borderRadius: BorderRadius.circular(25)
-  ),
-  child: Row(
-    children: [
-      Padding(
-        padding: const EdgeInsets.only(right: 20),
-        child: Text("$first_text",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: mainColor
-          ),),
+      ], color: Colors.white, borderRadius: BorderRadius.circular(25)),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Text(
+              "$first_text",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+            ),
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsetsDirectional.only(end: 20),
+            child: Text(
+              "$second_text",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+            ),
+          ),
+        ],
       ),
-      Spacer(),
-      Padding(
-        padding: const EdgeInsetsDirectional.only(
-            end: 20
-        ),
-        child: Text("$second_text",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: mainColor
-          ),),
-      ),
-
-    ],
-  ),
-);
-
+    );

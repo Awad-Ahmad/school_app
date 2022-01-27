@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                       (index) => mainLayoutWidget(
                           widgetName: widgetName[index],
                           imagePath: imagePath[index],
-                          context: context),
+                          context: context,screen: itemScreens[index]),
                     ),
                   ),
                 ),

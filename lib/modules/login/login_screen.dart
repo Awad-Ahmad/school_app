@@ -4,22 +4,19 @@ import 'package:school_app/layout/home_layout.dart';
 import 'package:school_app/modules/home/home_screen.dart';
 import 'package:school_app/shared/components/components.dart';
 import 'package:school_app/shared/components/constants.dart';
-import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
+  Widget build(BuildContext context)
+  {
 
-class _LoginScreenState extends State<LoginScreen> {
-  @override
-  Widget build(BuildContext context) {
     dynamic h = MediaQuery.of(context).size.height;
     dynamic w = MediaQuery.of(context).size.width;
 
     final _auth = FirebaseAuth.instance;
-     String ? email;
-     String ? password;
+
+    late String email;
+    late String password;
 
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -45,11 +42,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: h * 0.15,
                 ),
                 mainTextFormFields(
-
-                  onChanged:(String ? value){
-                  AppCubit.get(context).email=value;
-
-                  } ,
+                  onChanged: (value) {
+                    email = value;
+                  },
                   context: context,
                   labelText: "اسم المستخدم",
                   prefixIcon: Icons.person_outline,
@@ -58,9 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: h * 0.045,
                 ),
                 mainTextFormFields(
-                onChanged: (String ?value){
-                  AppCubit.get(context).passwrd=value;
-                },
+                  onChanged: (value) {
+                    password = value;
+                  },
                   context: context,
                   labelText: "كلمة المرور",
                   suffixIcon: Icons.remove_red_eye_outlined,
@@ -77,18 +72,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         " هل تواجه مشكلة ؟",
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: mainColor,),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: mainColor,
+                        ),
                       ),
                       InkWell(
                         child: Text(
                           "تواصل معنا",
                           style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: mainColor,),
+                            decoration: TextDecoration.underline,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: mainColor,
+                          ),
                         ),
                       ),
                     ],
@@ -114,58 +111,54 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration:
                         BoxDecoration(borderRadius: BorderRadius.circular(5)),
                     child: MaterialButton(
-                      onPressed: () async{
-                     print("as");
-                     print (AppCubit.get(context).email);
-
+                      onPressed: () async {
                         try {
-                          final user =
-                          await _auth.signInWithEmailAndPassword(
-                              email: AppCubit.get(context).email.toString() , password:AppCubit.get(context).passwrd.toString());
-
+                          final user = await _auth.signInWithEmailAndPassword(
+                            email: "anas1@gmail.com",
+                            password: "123456",
+                          );
                           if (user.user != null) {
                             Navigator.pushReplacement(
-                                 context,
-                                     MaterialPageRoute(
+                              context,
+                              MaterialPageRoute(
                                 builder: (context) => HomeLayout(),
-                                     )
-                                );
+                              ),
+                            );
                           }
                         } catch (e) {
-                          print(e);
+                          print(e.toString());
                           showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                title: Center(
-                                    child: Text(
-                                      "",
-                                      style: TextStyle(
-                                          color: Colors.grey[400]),
-                                    )),
-                                content:const Text(
-                                   "error",
-                                  style: TextStyle(
-                                       color: Colors.white),
-                                 ),
-                                backgroundColor: Colors.grey[400],
-                                shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                    BorderRadius.circular(10)),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child:const  Text("ok",
-                                          style: TextStyle(
-                                              color: Colors.white)))
-                                ],
-                              ));
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Center(
+                                  child: Text(
+                                "",
+                                style: TextStyle(color: Colors.grey[400]),
+                              )),
+                              content: const Text(
+                                "error",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              backgroundColor: Colors.grey[400],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    "ok",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
                           //print(e);
 
                         }
-
-                       },
+                      },
                       color: mainColor,
                       child: const Text(
                         "تسجيل دخول ",
