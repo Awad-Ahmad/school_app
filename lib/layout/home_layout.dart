@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:school_app/shared/components/components.dart';
-import 'package:school_app/shared/components/constants.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
 

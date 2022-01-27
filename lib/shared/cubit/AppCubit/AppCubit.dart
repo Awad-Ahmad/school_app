@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:school_app/layout/mainscreen.dart';
-import 'package:school_app/layout/messesgesscreen.dart';
-import 'package:school_app/layout/personal_info.dart';
+import 'package:school_app/modules/home/home_screen.dart';
+import 'package:school_app/modules/messages/messages_screen.dart';
+import 'package:school_app/modules/personal/personalInfo_screen.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
 
 class AppCubit extends Cubit<AppState> {
@@ -18,9 +18,9 @@ class AppCubit extends Cubit<AppState> {
     currentIndex = index;
     emit(NavBarIndexChanged());
   }
-  List <Widget>screensName=[
-    mainScreen(),
-    MessegeScreen(),
+  List <Widget> screensName=[
+    HomeScreen(),
+    MessagesScreen(),
     PersonalInfo(),
   ];
 }
