@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:school_app/shared/components/components.dart';
+import 'package:school_app/shared/components/constants.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
 
@@ -51,7 +53,21 @@ class HomeLayout extends StatelessWidget {
                           topLeft: Radius.circular(40),
                         ),
                       ),
+                      child:
+                      GridView.count(
+                        crossAxisCount: 2,
+                        shrinkWrap: true,
+                        mainAxisSpacing: 1,
+                        crossAxisSpacing: 1,
+
+                        children: List.generate(6,
+                                (index) =>mainLayoutWidget(widgetName: WidgetName[index] ,imagePath: "assets/images/ann.png")
+
+                        ),
+
+                      ),
                     ),
+
                   ],
                 ),
               ],

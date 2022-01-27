@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/shared/components/constants.dart';
-Widget mainLayoutWidget()=>
+Widget mainLayoutWidget({String ?  widgetName,String ? imagePath})=>
     Column(
       children: [
         Container(
@@ -8,7 +8,7 @@ Widget mainLayoutWidget()=>
           height: 184,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
-                offset: Offset(0, 6), color: bgColor, blurRadius: 6)
+                offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
           ], color: bgColor, borderRadius: BorderRadius.circular(25)),
           child: Column(
             children: [
@@ -17,15 +17,16 @@ Widget mainLayoutWidget()=>
                     left: 58, right: 58, top: 20, bottom: 34.9),
                 child: Container(
                   color: bgColor,
-                  child: Image(
-                    image: AssetImage('assets/images/attendance.png'),
+                  child:  Image(
+                    image: AssetImage('$imagePath'),
                   ),
                 ),
               ),
               Text(
-                "الغيابات",
+                "$widgetName",
                 style: TextStyle(
                     fontSize: 28,
+
                     fontWeight: FontWeight.bold,
                     color: mainColor),
               )
