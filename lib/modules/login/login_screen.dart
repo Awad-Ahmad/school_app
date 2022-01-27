@@ -4,16 +4,22 @@ import 'package:school_app/layout/home_layout.dart';
 import 'package:school_app/modules/home/home_screen.dart';
 import 'package:school_app/shared/components/components.dart';
 import 'package:school_app/shared/components/constants.dart';
+import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     dynamic h = MediaQuery.of(context).size.height;
     dynamic w = MediaQuery.of(context).size.width;
 
     final _auth = FirebaseAuth.instance;
-    late String email;
-    late String password;
+     String ? email;
+     String ? password;
 
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -40,8 +46,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 mainTextFormFields(
 
-                  onChanged:(value){
-                    email=value;
+                  onChanged:(String ? value){
+                  AppCubit.get(context).email=value;
 
                   } ,
                   context: context,
@@ -52,8 +58,8 @@ class LoginScreen extends StatelessWidget {
                   height: h * 0.045,
                 ),
                 mainTextFormFields(
-                onChanged: (value){
-                  password=value;
+                onChanged: (String ?value){
+                  AppCubit.get(context).passwrd=value;
                 },
                   context: context,
                   labelText: "كلمة المرور",
@@ -109,11 +115,13 @@ class LoginScreen extends StatelessWidget {
                         BoxDecoration(borderRadius: BorderRadius.circular(5)),
                     child: MaterialButton(
                       onPressed: () async{
+                     print("as");
+                     print (AppCubit.get(context).email);
 
                         try {
                           final user =
                           await _auth.signInWithEmailAndPassword(
-                              email: "anas1@gmail.com", password:"123456");
+                              email: AppCubit.get(context).email.toString() , password:AppCubit.get(context).passwrd.toString());
 
                           if (user.user != null) {
                             Navigator.pushReplacement(

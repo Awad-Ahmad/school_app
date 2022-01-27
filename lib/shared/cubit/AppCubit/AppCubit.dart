@@ -21,6 +21,14 @@ class AppCubit extends Cubit<AppState> {
     currentIndex = index;
     emit(NavBarIndexChanged());
   }
+  String  ? email ;
+  String ?passwrd;
+  void function (String ?  v,String ? a)
+  {
+    email =v;
+    passwrd=a;
+    emit(NavBarIndexChanged());
+  }
   List <Widget> screensName=[
     HomeScreen(),
     MessagesScreen(),
