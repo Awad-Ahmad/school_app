@@ -31,10 +31,11 @@ class PersonalInfo extends StatelessWidget {
             ),
            Expanded(
              child: ListView.separated(itemBuilder: (context,index)=>
-                 personalInfo(context:context, first_text:"a", second_text:"2020210507"), separatorBuilder:(context,index)=>Padding(
-                   padding: const EdgeInsets.symmetric(vertical: 10),
+                 mainContainerInfo(context:context, first_text:personalsInfo[index], second_text:personalInfoDetails[index]), separatorBuilder:(context,index)=>Padding(
+                   padding: const EdgeInsets.symmetric(vertical: 0,
+                   ),
                    child: Container(),
-                 ), itemCount: 3),
+                 ), itemCount: personalInfoDetails.length),
            )
           ],
         )),

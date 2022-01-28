@@ -87,7 +87,7 @@ Widget mainTextFormFields(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(5),
               ),
-              labelText: labelText,
+              hintText: labelText,
               labelStyle: const TextStyle(
                   color: Color(0xff0D3082),
                   fontSize: 20,
@@ -98,33 +98,37 @@ Widget mainTextFormFields(
       ),
     );
 //a
-Widget personalInfo({context, String? first_text, String? second_text}) =>
-    Container(
-      width: MediaQuery.of(context).size.width * 0.90,
-      height: 60,
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-            offset: const Offset(0, 6), color: Colors.white, blurRadius: 6)
-      ], color: Colors.white, borderRadius: BorderRadius.circular(25)),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Text(
-              "$first_text",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+Widget mainContainerInfo({context, String? first_text, String? second_text}) =>
+    Padding(
+      padding: const EdgeInsets.all(10),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.90,
+        height: 60,
+        decoration:
+        BoxDecoration(boxShadow: [
+          BoxShadow(
+              offset: const Offset(0, 0), color: Colors.white, blurRadius: 0)
+        ], color: Colors.white, borderRadius: BorderRadius.circular(5)),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Text(
+                "$first_text",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+              ),
             ),
-          ),
-          Spacer(),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(end: 20),
-            child: Text(
-              "$second_text",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+           Spacer(),
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 20),
+              child: Text(
+                "$second_text",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
