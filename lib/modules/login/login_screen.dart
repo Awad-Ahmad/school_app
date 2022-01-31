@@ -4,6 +4,7 @@ import 'package:school_app/layout/home_layout.dart';
 import 'package:school_app/modules/home/home_screen.dart';
 import 'package:school_app/shared/components/components.dart';
 import 'package:school_app/shared/components/constants.dart';
+import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -15,8 +16,8 @@ class LoginScreen extends StatelessWidget {
 
     final _auth = FirebaseAuth.instance;
 
-    late String email;
-    late String password;
+     String ? email;
+     String  ? password;
 
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -43,7 +44,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 mainTextFormFields(
                   onChanged: (value) {
-                    email = value;
+                    AppCubit.get(context).email=value;
+
                   },
                   context: context,
                   labelText: "اسم المستخدم",
@@ -54,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 mainTextFormFields(
                   onChanged: (value) {
-                    password = value;
+                    AppCubit.get(context).passwrd=value;
                   },
                   context: context,
                   labelText: "كلمة المرور",
@@ -113,9 +115,11 @@ class LoginScreen extends StatelessWidget {
                     child: MaterialButton(
                       onPressed: () async {
                         try {
+                          print(AppCubit.get(context).email);
+                          print(AppCubit.get(context).passwrd);
                           final user = await _auth.signInWithEmailAndPassword(
-                            email: "anas1@gmail.com",
-                            password: "123456",
+                            email: AppCubit.get(context).email.toString(),
+                            password:AppCubit.get(context).passwrd.toString(),
                           );
                           if (user.user != null) {
                             Navigator.pushReplacement(
