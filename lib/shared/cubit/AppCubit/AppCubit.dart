@@ -8,29 +8,28 @@ import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(AppInitialState());
 
-  static AppCubit get(context) {
-    return BlocProvider.of(context);
-  }
+  static AppCubit get(context) => BlocProvider.of(context);
 
   int currentIndex = 0;
-
-
-
 
   void changeIndex(index) {
     currentIndex = index;
     emit(NavBarIndexChanged());
   }
-  String  ? email ;
-  String ?passwrd;
-  void function (String ?  v,String ? a)
-  {
-    email =v;
-    passwrd=a;
+
+  String? email;
+  String? type;
+
+  String? password;
+
+  void function(String? v, String? a) {
+    email = v;
+    password = a;
     emit(NavBarIndexChanged());
   }
-  int  index=0;
-  List <Widget> screensName=[
+
+  int index = 0;
+  List<Widget> screensName = [
     HomeScreen(),
     MessagesScreen(),
     PersonalInfo(),

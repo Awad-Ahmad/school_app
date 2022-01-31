@@ -56,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 mainTextFormFields(
                   onChanged: (value) {
-                    AppCubit.get(context).passwrd=value;
+                    AppCubit.get(context).password=value;
                   },
                   context: context,
                   labelText: "كلمة المرور",
@@ -116,10 +116,10 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () async {
                         try {
                           print(AppCubit.get(context).email);
-                          print(AppCubit.get(context).passwrd);
+                          print(AppCubit.get(context).password);
                           final user = await _auth.signInWithEmailAndPassword(
                             email: AppCubit.get(context).email.toString(),
-                            password:AppCubit.get(context).passwrd.toString(),
+                            password:AppCubit.get(context).password.toString(),
                           );
                           if (user.user != null) {
                             Navigator.pushReplacement(
