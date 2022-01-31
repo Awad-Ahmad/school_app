@@ -106,8 +106,12 @@ Widget mainContainerInfo({context, String? first_text, String? second_text}) =>
         height: 60,
         decoration:
         BoxDecoration(boxShadow: [
-          BoxShadow(
-              offset: const Offset(0, 0), color: Colors.white, blurRadius: 0)
+
+            BoxShadow(
+                offset: const Offset(0, 6),
+                color: Colors.grey,
+                blurRadius: 6)
+
         ], color: Colors.white, borderRadius: BorderRadius.circular(5)),
         child: Row(
           children: [

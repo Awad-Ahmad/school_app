@@ -23,7 +23,13 @@ class HomeLayout extends StatelessWidget {
               title: const Text('مدرستي'),
               actions: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Container(
+                      height: 200,
+                      width: 200,
+                      color: Colors.red,
+                    );
+                  },
                   icon: const Icon(
                     Icons.notifications_none_outlined,
                   ),

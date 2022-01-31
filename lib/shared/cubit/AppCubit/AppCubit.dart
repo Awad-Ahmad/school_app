@@ -29,6 +29,7 @@ class AppCubit extends Cubit<AppState> {
     passwrd=a;
     emit(NavBarIndexChanged());
   }
+  int  index=0;
   List <Widget> screensName=[
     HomeScreen(),
     MessagesScreen(),

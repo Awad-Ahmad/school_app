@@ -84,3 +84,10 @@ List<String>personalsInfo=
    ,"900,000"
 
  ];
+ List<String>gradesdestalies=
+ [
+"مذاكرة 1",
+   "فحص نصفي"
+   ,"مذاكرة 2"
+   ,"فحص اخير"
+ ];
