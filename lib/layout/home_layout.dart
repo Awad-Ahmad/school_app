@@ -81,91 +81,105 @@ class HomeLayout extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Row(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
                       children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.settings,
-                              color: mainColor,
-                            )),
-                        //SizedBox(width: 20,),
-                        Text(
-                          "الاعدادات",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: mainColor),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.event,
-                              color: mainColor,
-                            )),
-                        //SizedBox(width: 20,),
-                        Text(
-                          "احداث",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: mainColor),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: w * 0.83,
-                    height: 1,
-                    color: mainColor,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.info,
-                              color: mainColor,
-                            )),
-                        //  SizedBox(width: 20,),
-                        Text(
-                          "عن التطبيق",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: mainColor),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
+
+                            child: Row(
+                              children: [
+                              Icon(
+                                      Icons.settings,
+                                      color: mainColor,
+                                    ),
+                                //SizedBox(width: 20,),
+                                Text(
+                                  "الاعدادات",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: mainColor),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.login,
-                              color: mainColor,
-                            )),
-                        //SizedBox(width: 20,),
-                        Text(
-                          "تسجيل خروج",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: mainColor),
-                        )
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
+                            child: Row(
+                              children: [
+                               Icon(
+                                      Icons.event,
+                                      color: mainColor,
+                                    ),
+                                //SizedBox(width: 20,),
+                                Text(
+                                  "احداث",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: mainColor),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: w * 0.83,
+                          height: 1,
+                          color: mainColor,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
+                            child: Row(
+                              children: [
+                                Icon(
+                                      Icons.info,
+                                      color: mainColor,
+                                    ),
+                                //  SizedBox(width: 20,),
+                                Text(
+                                  "عن التطبيق",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: mainColor),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
+                            child: Row(
+                              children: [
+
+
+                                    Icon(
+                                      Icons.login,
+                                      color: mainColor,
+                                    ),
+                                //SizedBox(width: 20,),
+                                Text(
+                                  "تسجيل خروج",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: mainColor),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
