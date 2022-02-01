@@ -13,7 +13,8 @@ Future<void> main() async {
 }
 
 //
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget
+{
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
           ),
           primaryColor: mainColor,
         ),
-        home: LoginScreen(),
+        home: HomeLayout(),
       ),
     );
   }
