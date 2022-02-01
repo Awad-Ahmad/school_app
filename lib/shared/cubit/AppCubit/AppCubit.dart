@@ -19,7 +19,7 @@ class AppCubit extends Cubit<AppState> {
 
   String? email;
   String? type;
-
+  String? currType;
   String? password;
 
   void function(String? v, String? a) {

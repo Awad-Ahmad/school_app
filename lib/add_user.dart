@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:school_app/shared/components/components.dart';
@@ -17,6 +18,7 @@ class _AddUserState extends State<AddUser> {
     final _auth = FirebaseAuth.instance;
     dynamic h = MediaQuery.of(context).size.height;
     dynamic w = MediaQuery.of(context).size.width;
+    var ref = FirebaseFirestore.instance;
 
     return Scaffold(
       appBar: AppBar(
@@ -67,54 +69,21 @@ class _AddUserState extends State<AddUser> {
                       BoxDecoration(borderRadius: BorderRadius.circular(5)),
                   child: MaterialButton(
                     onPressed: () async {
-                      //   try{
-                      // await  _auth.createUserWithEmailAndPassword(email: email!, password: password!);
-                      // print("===================");}
-                      //
-                      //
-                      //   catch(e){
-                      //
-                      //  print("Error When  create User With Email And Password  $e");
-                      //  print(email);
-                      //
-                      //   };
-                      //  onPressed: () async {
                       try {
-                        print("+++++===============");
-                        print(AppCubit.get(context).email);
-                        print(AppCubit.get(context).password);
-                        print(AppCubit.get(context).type);
-                        print("+++++==================");
-                        // final user = await _auth.createUserWithEmailAndPassword(
-                        //   email: AppCubit.get(context).email.toString(),
-                        //   password:AppCubit.get(context).password.toString(),
-                        // );
+                        final user = await _auth.createUserWithEmailAndPassword(
+                          email: AppCubit.get(context).email.toString(),
+                          password: AppCubit.get(context).password.toString(),
+                        );
 
-                        // here down down down down down
-
-                        // await FirebaseFirestore.instance
-                        //     .collection("users")
-                        //     .add({
-                        //   "email": "${AppCubit.get(context).email}",
-                        //   "type": "${AppCubit.get(context).type}",
-                        //   "phone": "000000000000000000",
-                        //   "name": "anass",
-                        //   "password": "${AppCubit.get(context).password}"
-                        // });
-
-                        // here  up up up up up up up
-
-
-                        print("created suc");
-                        //    if (user.user != null) {
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => HomeLayout(),
-                        //   ),
-                        // );
-
-                        //  }
+                        if (user.user != null) {
+                          await ref.collection("users").add({
+                            "email": "${AppCubit.get(context).email}",
+                            "type": "${AppCubit.get(context).type}",
+                            "password": "${AppCubit.get(context).password}"
+                          });
+                          print(
+                              "created suc====================================================================");
+                        }
                       } catch (e) {
                         print(e.toString());
                         showDialog(

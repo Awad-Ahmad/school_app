@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:school_app/add_user.dart';
 import 'package:school_app/layout/home_layout.dart';
 import 'package:school_app/modules/home/home_screen.dart';
 import 'package:school_app/shared/components/components.dart';
@@ -8,17 +10,15 @@ import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
-  Widget build(BuildContext context)
-  {
-
+  Widget build(BuildContext context) {
     dynamic h = MediaQuery.of(context).size.height;
     dynamic w = MediaQuery.of(context).size.width;
 
     final _auth = FirebaseAuth.instance;
 
-     String ? email;
-     String  ? password;
-
+    String? curremail;
+    String? keyword;
+    var Firestore = FirebaseFirestore.instance;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -44,8 +44,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 mainTextFormFields(
                   onChanged: (value) {
-                    AppCubit.get(context).email=value;
-
+                    AppCubit.get(context).email = value;
                   },
                   context: context,
                   labelText: "اسم المستخدم",
@@ -56,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 mainTextFormFields(
                   onChanged: (value) {
-                    AppCubit.get(context).password=value;
+                    AppCubit.get(context).password = value;
                   },
                   context: context,
                   labelText: "كلمة المرور",
@@ -115,17 +114,36 @@ class LoginScreen extends StatelessWidget {
                     child: MaterialButton(
                       onPressed: () async {
                         try {
-                          print(AppCubit.get(context).email);
-                          print(AppCubit.get(context).password);
                           final user = await _auth.signInWithEmailAndPassword(
                             email: AppCubit.get(context).email.toString(),
-                            password:AppCubit.get(context).password.toString(),
+                            password: AppCubit.get(context).password.toString(),
                           );
                           if (user.user != null) {
+                            curremail = await _auth.currentUser!.email;
+                            var u = await Firestore.collection("users")
+                                .where("email", isEqualTo: "$curremail")
+                                .get();
+                            u.docs.forEach((element) {
+                              print("====================================");
+
+                              AppCubit.get(context).currType =
+                                  element.data()["type"];
+                            });
+                            var nextScreen;
+                            if (AppCubit.get(context).currType == "student") {
+                              nextScreen = const HomeLayout();
+                            }
+                            if (AppCubit.get(context).currType == "admin") {
+                              nextScreen = const AddUser();
+                            }
+                            //TODO it
+                            else {
+                              nextScreen = const HomeLayout();
+                            }
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomeLayout(),
+                                builder: (context) => nextScreen,
                               ),
                             );
                           }
