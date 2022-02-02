@@ -7,8 +7,7 @@ import 'package:school_app/modules/login/login_screen.dart';
 import 'package:school_app/shared/components/constants.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 
-Future<void> main() async
-{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([
@@ -35,6 +34,7 @@ class MyApp extends StatelessWidget {
             titleTextStyle: TextStyle(
               color: mainColor,
               fontSize: 24,
+              fontWeight: FontWeight.w400,
             ),
             iconTheme: IconThemeData(
               color: mainColor,

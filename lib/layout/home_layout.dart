@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:school_app/modules/login/login_screen.dart';
 import 'package:school_app/shared/components/constants.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
@@ -152,7 +153,9 @@ class HomeLayout extends StatelessWidget {
                           ),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(

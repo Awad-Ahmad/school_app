@@ -25,8 +25,12 @@ Widget buildMessagesItem(index) {
     padding: const EdgeInsets.symmetric(horizontal: 20.0),
     child: Container(
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
+        boxShadow: const [
+          BoxShadow(
+            offset: Offset(0, 3),
+            color: Colors.grey,
+            blurRadius: 4,
+          ),
         ],
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
@@ -43,7 +47,7 @@ Widget buildMessagesItem(index) {
           ),
           const Spacer(),
           IconButton(
-            onPressed: (){},
+            onPressed: () {},
             icon: Icon(
               Icons.arrow_forward_ios_outlined,
               color: mainColor,

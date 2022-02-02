@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/modules/announcment/anouncment_details.dart';
 import 'package:school_app/shared/components/constants.dart';
 
 class AnnouncmentScreen extends StatelessWidget {
@@ -6,66 +7,70 @@ class AnnouncmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: ListView.separated(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * 0.25,
-                    child: Column(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(title: const Text("تعاميم واعلانات"),),
+        body: ListView.separated(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                boxShadow: const [
+                  BoxShadow(
+                    offset: Offset(0, 3),
+                    color: Colors.grey,
+                    blurRadius: 4,
+                  )
+                ],
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              width: double.infinity,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
+                        Text(
+                          "عنوان",
+                          style: TextStyle(
+                              color: mainColor, fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Text(
+                      "من شمنست منشتسه تصم شسمن انتسش ىوشسة ىءئن ىنشتلاسن كخه شسي شسي شسي شسي شس ي شسي  شس يشسي ص نيشسين شسنكيسي ضصه سشتن شستكمسشي شسمن ",
+                      maxLines: 2,
+                      style: TextStyle(
+                        color: mainColor,
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>AnouncmentDetails()));
+                          },
                           child: Row(
                             children: [
-                              Text(
-                                "عنوان",
-                                style: TextStyle(
-                                    color: mainColor,
-                                    fontWeight: FontWeight.w600),
+                              Icon(
+                                Icons.arrow_back_ios,
+                                color: mainColor,
                               ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text(
-                            "من شمنست منشتسه تصم شسمن انتسش ىوشسة ىءئن ىنشتلاسن كخهضصه سشتن شستكمسشي شسمن ",
-                            maxLines: 2,
-                            style: TextStyle(
-                              color: mainColor,
-                              overflow: TextOverflow.ellipsis,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.arrow_back_ios,
-                                      color: mainColor,
-                                    ),
-                                    Text(
-                                      "متابعة القراءة",
-                                      style: TextStyle(color: mainColor),
-                                    ),
-                                  ],
-                                ),
+                              Text(
+                                "متابعة القراءة",
+                                style: TextStyle(color: mainColor),
                               ),
                             ],
                           ),
@@ -73,11 +78,15 @@ class AnnouncmentScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-            separatorBuilder: (context, index) => Container(
-                  height: 20,
-                ),
-            itemCount: 2),
+                ],
+              ),
+            ),
+          ),
+          separatorBuilder: (context, index) => Container(
+            height: 20,
+          ),
+          itemCount: 2,
+        ),
       ),
     );
   }

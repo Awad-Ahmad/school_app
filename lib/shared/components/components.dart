@@ -15,10 +15,12 @@ Widget mainLayoutWidget(
             AspectRatio(
               aspectRatio: 1 / 1,
               child: Container(
-                // width: MediaQuery.of(context).size.width*0.3,
-                decoration: BoxDecoration(boxShadow: [
+                decoration: BoxDecoration(boxShadow: const [
                   BoxShadow(
-                      offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
+                    offset: Offset(0, 3),
+                    color: Colors.grey,
+                    blurRadius: 4,
+                  ),
                 ], color: bgColor, borderRadius: BorderRadius.circular(25)),
                 child: Column(
                   children: [
@@ -104,14 +106,12 @@ Widget mainContainerInfo({context, String? first_text, String? second_text}) =>
       child: Container(
         width: MediaQuery.of(context).size.width * 0.90,
         height: 60,
-        decoration:
-        BoxDecoration(boxShadow: [
-
-            BoxShadow(
-                offset: const Offset(0, 6),
-                color: Colors.grey,
-                blurRadius: 6)
-
+        decoration: BoxDecoration(boxShadow: const [
+          BoxShadow(
+            offset: Offset(0, 3),
+            color: Colors.grey,
+            blurRadius: 4,
+          )
         ], color: Colors.white, borderRadius: BorderRadius.circular(5)),
         child: Row(
           children: [
@@ -120,16 +120,20 @@ Widget mainContainerInfo({context, String? first_text, String? second_text}) =>
               child: Text(
                 "$first_text",
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: mainColor),
               ),
             ),
-           Spacer(),
+            Spacer(),
             Padding(
               padding: const EdgeInsetsDirectional.only(end: 20),
               child: Text(
                 "$second_text",
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 16, color: mainColor),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: mainColor),
               ),
             ),
           ],
