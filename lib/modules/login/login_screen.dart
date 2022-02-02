@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        //resizeToAvoidBottomInset: false,
         backgroundColor: bgColor,
         body: Center(
           child: SingleChildScrollView(

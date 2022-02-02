@@ -43,26 +43,27 @@ Widget buildGradesItem(index,context) {
       ),
       height: 60,
       width: double.infinity,
-      child: Row(
-        children: [
-          const SizedBox(width: 20),
-          Text(
-            courses[index],
-            style: TextStyle(
-                color: mainColor, fontSize: 16, fontWeight: FontWeight.w600),
-          ),
-          const Spacer(),
-          IconButton(
-            onPressed: () {
-              AppCubit.get(context).index=index;
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>DetaildGrade()));
-            },
-            icon: Icon(
-              Icons.arrow_forward_ios_outlined,
-              color: mainColor,
+      child: InkWell(
+        onTap: (){
+          AppCubit.get(context).index=index;
+          Navigator.push(context, MaterialPageRoute(builder: (context) =>DetaildGrade()));
+        },
+        child: Row(
+          children: [
+            const SizedBox(width: 20),
+            Text(
+              courses[index],
+              style: TextStyle(
+                  color: mainColor, fontSize: 16, fontWeight: FontWeight.w600),
             ),
-          ),
-        ],
+            const Spacer(),
+         Icon(
+                Icons.arrow_forward_ios_outlined,
+                color: mainColor,
+              ),
+
+          ],
+        ),
       ),
     ),
   );

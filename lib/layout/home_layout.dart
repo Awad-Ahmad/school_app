@@ -27,34 +27,51 @@ class HomeLayout extends StatelessWidget {
                     height: h * 0.23,
                     color: mainColor,
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.only(right: 20, top: 20),
                       child: Row(
+                        // mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const CircleAvatar(
                             radius: 50,
                             backgroundColor: Colors.white,
                           ),
-                          const SizedBox(
-                            width: 8,
-                          ),
                           Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Text(
-                                "سامي رامي",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w700),
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(right: 8, top: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Text(
+                                      "سامي رامي",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 22),
+                                    )
+                                  ],
+                                ),
                               ),
-                              Text(
-                                "صف سادس",
-                                style: TextStyle(
-                                  color: Colors.white60,
-                                  fontWeight: FontWeight.w500,
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 8,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Text(
+                                      "صف سادس",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
+                                    )
+                                  ],
                                 ),
                               ),
                             ],
@@ -64,23 +81,21 @@ class HomeLayout extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
+
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.settings,
-                                  color: mainColor,
-                                ),
-                                const SizedBox(
-                                  width: 12,
-                                ),
+                             children: [
+                              Icon(
+                                      Icons.settings,
+                                      color: mainColor,
+                                    ),
+                                //SizedBox(width: 20,),
                                 Text(
                                   "الاعدادات",
                                   style: TextStyle(
@@ -92,20 +107,17 @@ class HomeLayout extends StatelessWidget {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.event,
-                                  color: mainColor,
-                                ),
-                                const SizedBox(
-                                  width: 12,
-                                ),
+                               Icon(
+                                      Icons.event,
+                                      color: mainColor,
+                                    ),
+                                //SizedBox(width: 20,),
                                 Text(
                                   "احداث",
                                   style: TextStyle(
@@ -117,29 +129,22 @@ class HomeLayout extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            width: double.infinity,
-                            height: 1,
-                            color: mainColor,
-                          ),
+                        Container(
+                          width: w * 0.83,
+                          height: 1,
+                          color: mainColor,
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.info,
-                                  color: mainColor,
-                                ),
-                                const SizedBox(
-                                  width: 12,
-                                ),
+                                      Icons.info,
+                                      color: mainColor,
+                                    ),
+                                //  SizedBox(width: 20,),
                                 Text(
                                   "عن التطبيق",
                                   style: TextStyle(
@@ -151,19 +156,19 @@ class HomeLayout extends StatelessWidget {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: InkWell(
+                            onTap: (){},
                             child: Row(
                               children: [
-                                Icon(
-                                  Icons.login,
-                                  color: mainColor,
-                                ),
-                                const SizedBox(
-                                  width: 12,
-                                ),
+
+
+                                    Icon(
+                                      Icons.login,
+                                      color: mainColor,
+                                    ),
+                                //SizedBox(width: 20,),
                                 Text(
                                   "تسجيل خروج",
                                   style: TextStyle(
