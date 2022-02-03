@@ -43,15 +43,15 @@ class HomeLayout extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Text(
-                                "سامي رامي",
-                                style: TextStyle(
+                               AppCubit.get(context).currUser!.firstName+" "+AppCubit.get(context).currUser!.lastName,
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 22,
                                     fontWeight: FontWeight.w700),
                               ),
-                              Text(
+                              const Text(
                                 "صف سادس",
                                 style: TextStyle(
                                   color: Colors.white60,
