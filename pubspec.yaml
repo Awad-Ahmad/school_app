@@ -17,6 +17,7 @@ dependencies:
   intl:
   percent_indicator:
   cloud_firestore: ^3.0.0
+  popover:
 
 
 dev_dependencies:

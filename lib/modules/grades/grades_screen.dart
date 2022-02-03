@@ -12,14 +12,15 @@ class GradeScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("الدرجات"),
+          title: Text("الدرجات"),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: ListView.separated(
               physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) => buildGradesItem(index, context),
-              separatorBuilder: (context, index) => Container(
+              itemBuilder: (context, index) => buildGradesItem(index,context),
+              separatorBuilder: (context, index) =>
+                  Container(
                     height: 20,
                   ),
               itemCount: courses.length),
@@ -29,17 +30,13 @@ class GradeScreen extends StatelessWidget {
   }
 }
 
-Widget buildGradesItem(index, context) {
+Widget buildGradesItem(index,context) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 20.0),
     child: Container(
       decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(
-            offset: Offset(0, 3),
-            color: Colors.grey,
-            blurRadius: 4,
-          ),
+        boxShadow: [
+          BoxShadow(offset: const Offset(0, 6), color: bgColor, blurRadius: 6)
         ],
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
@@ -47,10 +44,9 @@ Widget buildGradesItem(index, context) {
       height: 60,
       width: double.infinity,
       child: InkWell(
-        onTap: () {
-          AppCubit.get(context).index = index;
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => DetaildGrade()));
+        onTap: (){
+          AppCubit.get(context).index=index;
+          Navigator.push(context, MaterialPageRoute(builder: (context) =>DetaildGrade()));
         },
         child: Row(
           children: [
@@ -61,16 +57,15 @@ Widget buildGradesItem(index, context) {
                   color: mainColor, fontSize: 16, fontWeight: FontWeight.w600),
             ),
             const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14.0),
-              child: Icon(
+         Icon(
                 Icons.arrow_forward_ios_outlined,
                 color: mainColor,
               ),
-            ),
+//a
           ],
         ),
       ),
     ),
   );
 }
+

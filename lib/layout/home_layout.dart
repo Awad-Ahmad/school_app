@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:popover/popover.dart';
+import 'package:school_app/layout/popover.dart';
 import 'package:school_app/modules/login/login_screen.dart';
+import 'package:school_app/modules/messages/messages_screen.dart';
 import 'package:school_app/shared/components/constants.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
@@ -187,18 +190,7 @@ class HomeLayout extends StatelessWidget {
             appBar: AppBar(
               title: const Text('مدرستي'),
               actions: [
-                IconButton(
-                  onPressed: () {
-                    Container(
-                      height: 200,
-                      width: 200,
-                      color: Colors.red,
-                    );
-                  },
-                  icon: const Icon(
-                    Icons.notifications_none_outlined,
-                  ),
-                ),
+               PopOver(),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
