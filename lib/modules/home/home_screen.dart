@@ -45,7 +45,9 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "سامي رامي",
+                          cubit.currUser!.firstName +
+                              " " +
+                              cubit.currUser!.lastName,
                           style: TextStyle(
                               fontSize: 22,
                               color: mainColor,
@@ -86,7 +88,8 @@ class HomeScreen extends StatelessWidget {
                       (index) => mainLayoutWidget(
                           widgetName: widgetName[index],
                           imagePath: imagePath[index],
-                          context: context,screen: itemScreens[index]),
+                          context: context,
+                          screen: itemScreens[index]),
                     ),
                   ),
                 ),

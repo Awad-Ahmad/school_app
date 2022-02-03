@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           ),
           primaryColor: mainColor,
         ),
-        home: HomeLayout(),
+        home: LoginScreen(),
       ),
     );
   }

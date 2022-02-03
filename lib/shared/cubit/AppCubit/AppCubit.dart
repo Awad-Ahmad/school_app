@@ -4,6 +4,7 @@ import 'package:school_app/modules/home/home_screen.dart';
 import 'package:school_app/modules/messages/messages_screen.dart';
 import 'package:school_app/modules/personal/personalInfo_screen.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
+import 'package:school_app/shared/models/User.dart';
 
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(AppInitialState());
@@ -17,10 +18,15 @@ class AppCubit extends Cubit<AppState> {
     emit(NavBarIndexChanged());
   }
 
+  String? first_name;
+  String? last_name;
+  String? users_id;
+  String? password;
   String? email;
   String? type;
+
   String? currType;
-  String? password;
+  MyUsers? currUser;
 
   void function(String? v, String? a) {
     email = v;

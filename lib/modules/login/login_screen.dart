@@ -3,10 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:school_app/add_user.dart';
 import 'package:school_app/layout/home_layout.dart';
-import 'package:school_app/modules/home/home_screen.dart';
 import 'package:school_app/shared/components/components.dart';
 import 'package:school_app/shared/components/constants.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
+import 'package:school_app/shared/models/User.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
     dynamic w = MediaQuery.of(context).size.width;
 
     final _auth = FirebaseAuth.instance;
-
+    MyUsers x;
     String? curremail;
     String? keyword;
     var Firestore = FirebaseFirestore.instance;
@@ -125,15 +125,24 @@ class LoginScreen extends StatelessWidget {
                                 .get();
                             u.docs.forEach((element) {
                               print("====================================");
-
-                              AppCubit.get(context).currType =
-                                  element.data()["type"];
+                              x = MyUsers(
+                                  element.data()["first_name"],
+                                  element.data()["email"],
+                                  element.data()["last_name"],
+                                  element.data()["users_id"],
+                                  element.data()["password"],
+                                  element.data()["type"]);
+                              AppCubit.get(context).currUser = x;
+                              print("====================================");
+                              print(AppCubit.get(context).currUser?.firstName);
                             });
                             var nextScreen;
-                            if (AppCubit.get(context).currType == "student") {
+                            if (AppCubit.get(context).currUser?.type ==
+                                "student") {
                               nextScreen = const HomeLayout();
                             }
-                            if (AppCubit.get(context).currType == "admin") {
+                            if (AppCubit.get(context).currUser?.type ==
+                                "admin") {
                               nextScreen = const AddUser();
                             }
                             //TODO it
