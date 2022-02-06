@@ -121,7 +121,7 @@ Widget mainContainerInfo({context, String? first_text, String? second_text}) =>
                 "$first_text",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 22,
                     color: mainColor),
               ),
             ),
