@@ -1,17 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:popover/popover.dart';
 import 'package:school_app/layout/popover.dart';
 import 'package:school_app/modules/login/login_screen.dart';
-import 'package:school_app/modules/messages/messages_screen.dart';
 import 'package:school_app/shared/components/constants.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppCubit.dart';
 import 'package:school_app/shared/cubit/AppCubit/AppStates.dart';
 
 class HomeLayout extends StatelessWidget {
-  const HomeLayout({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppState>(
@@ -19,7 +14,6 @@ class HomeLayout extends StatelessWidget {
       builder: (BuildContext context, state) {
         var cubit = AppCubit.get(context);
         dynamic h = MediaQuery.of(context).size.height;
-        dynamic w = MediaQuery.of(context).size.width;
 
         return Directionality(
           textDirection: TextDirection.rtl,
@@ -48,7 +42,9 @@ class HomeLayout extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                               AppCubit.get(context).currUser!.firstName+" "+AppCubit.get(context).currUser!.lastName,
+                                AppCubit.get(context).currUser!.firstName +
+                                    " " +
+                                    AppCubit.get(context).currUser!.lastName,
                                 style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 22,
@@ -157,7 +153,10 @@ class HomeLayout extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()));
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -190,7 +189,7 @@ class HomeLayout extends StatelessWidget {
             appBar: AppBar(
               title: const Text('مدرستي'),
               actions: [
-               PopOver(),
+                PopOver(),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(

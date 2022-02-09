@@ -8,24 +8,24 @@ class FeesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     dynamic h = MediaQuery.of(context).size.height;
-    dynamic w = MediaQuery.of(context).size.width;
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: bgColor,
         appBar: AppBar(
-          title: const Text("الرسوم المالية",),
+          title: const Text(
+            "الرسوم المالية",
+          ),
         ),
         body: Directionality(
           textDirection: TextDirection.rtl,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Column(
-         
               children: [
                 Expanded(
                   flex: 2,
-
                   child: ListView.separated(
                       itemBuilder: (context, index) => mainContainerInfo(
                           context: context,
@@ -33,7 +33,6 @@ class FeesScreen extends StatelessWidget {
                           second_text: feesetalies[index]),
                       separatorBuilder: (context, index) => Padding(
                             padding: const EdgeInsets.symmetric(vertical: 0),
-
                           ),
                       itemCount: 3),
                 ),
@@ -41,12 +40,11 @@ class FeesScreen extends StatelessWidget {
 
                 Expanded(
                   flex: 2,
-
                   child: ListView.separated(
                       itemBuilder: (context, index) => mainContainerInfo(
                           context: context,
                           first_text: feesInfo2[index],
-                          second_text: feesetalies[index+3]),
+                          second_text: feesetalies[index + 3]),
                       separatorBuilder: (context, index) => Container(),
                       itemCount: 3),
                 ),
@@ -81,7 +79,9 @@ class FeesScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: h*0.18,),
+                SizedBox(
+                  height: h * 0.18,
+                ),
               ],
             ),
           ),

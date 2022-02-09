@@ -18,9 +18,6 @@ class AppCubit extends Cubit<AppState> {
     emit(NavBarIndexChanged());
   }
 
-  String? first_name;
-  String? last_name;
-  String? users_id;
   String? password;
   String? email;
   String? type;

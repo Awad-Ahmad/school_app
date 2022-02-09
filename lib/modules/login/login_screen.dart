@@ -124,7 +124,6 @@ class LoginScreen extends StatelessWidget {
                                 .where("email", isEqualTo: "$curremail")
                                 .get();
                             u.docs.forEach((element) {
-                              print("====================================");
                               x = MyUsers(
                                   element.data()["first_name"],
                                   element.data()["email"],
@@ -133,13 +132,11 @@ class LoginScreen extends StatelessWidget {
                                   element.data()["password"],
                                   element.data()["type"]);
                               AppCubit.get(context).currUser = x;
-                              print("====================================");
-                              print(AppCubit.get(context).currUser?.firstName);
                             });
                             var nextScreen;
                             if (AppCubit.get(context).currUser?.type ==
                                 "student") {
-                              nextScreen = const HomeLayout();
+                              nextScreen = HomeLayout();
                             }
                             if (AppCubit.get(context).currUser?.type ==
                                 "admin") {
@@ -147,7 +144,7 @@ class LoginScreen extends StatelessWidget {
                             }
                             //TODO it
                             else {
-                              nextScreen = const HomeLayout();
+                              nextScreen = HomeLayout();
                             }
                             Navigator.pushReplacement(
                               context,
